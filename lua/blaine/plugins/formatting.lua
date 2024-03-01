@@ -19,7 +19,7 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				php = { "phpcbf" },
+				php = { "pretty-php" },
 				rust = { "rustfmt" },
 				go = { "gofmt" },
 			},
