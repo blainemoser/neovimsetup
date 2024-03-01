@@ -25,7 +25,7 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
-				"phpactor", -- php
+				"intelephense", -- php
 				"rustfmt", -- rust
 				"gopls",
 			},
