@@ -2,7 +2,6 @@
 -- set leader key to space
 vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap('n', '<C-l>', ':call CocActionAsync("jumpDefinition")<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-P>', ':Telescope find_files default_text=', {noremap = true})
 vim.api.nvim_set_keymap('n', 'lg', ':Telescope live_grep default_text=', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gs', ':Telescope grep_string default_text=', {noremap = true})
