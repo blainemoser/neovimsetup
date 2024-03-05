@@ -9,11 +9,19 @@ vim.api.nvim_set_keymap("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", {})
 vim.api.nvim_set_keymap("n", "<F9>", ":LazyGit<Return>", { noremap = true })
 
--- format a JSON fast
-vim.api.nvim_set_keymap("n", "jq", ":%!jq . <CR>", {})
+-- tab mappings
+vim.api.nvim_set_keymap("n", "<C-l>h", ":tabr<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-l>l", ":tabl<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-l>j", ":tabp<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-l>k", ":tabn<CR>", {noremap = true, silent = true})
+
+-- Use for when you want to input a number
+vim.api.nvim_set_keymap("n", "<C-l>f", ":tabn", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-t>", ":tabnew<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-x>", ":tabc<CR>", {noremap = true, silent = true})
 
 -- Bring up the tree
-vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- Double quotes
 vim.api.nvim_set_keymap("i", '"', '""<left>', { noremap = true, silent = true })
