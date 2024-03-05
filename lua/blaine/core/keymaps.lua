@@ -9,6 +9,9 @@ vim.api.nvim_set_keymap("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", {})
 vim.api.nvim_set_keymap("n", "<F9>", ":LazyGit<Return>", { noremap = true })
 
+-- format a JSON fast
+vim.api.nvim_set_keymap("n", "jq", ":%!jq . <CR>", {})
+
 -- Bring up the tree
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
