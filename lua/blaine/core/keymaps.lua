@@ -20,6 +20,9 @@ vim.api.nvim_set_keymap("n", "<C-l>f", ":tabn", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<C-t>", ":tabnew<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<C-x>", ":tabc<CR>", {noremap = true, silent = true})
 
+-- Clear search
+vim.api.nvim_set_keymap("n", "cs", ":noh<CR>", {noremap = true, silent = true})
+
 -- Bring up the tree
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
