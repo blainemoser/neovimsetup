@@ -27,6 +27,7 @@ return {
 				"eslint_d", -- js linter
 				"intelephense", -- php
 				"rustfmt", -- rust
+				"vue-language-server", -- vue
 				"gopls",
 			},
 		})

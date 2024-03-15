@@ -97,5 +97,11 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		
+		-- configure vue server
+		lspconfig["vue-language-server"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }

@@ -3,20 +3,26 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
-
 		conform.setup({
+			notify_on_error = true,
 			formatters_by_ft = {
 				javascript = { "prettier" },
-				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				svelte = { "prettier" },
+				typescript = { "prettier" },
+				vue = { "prettier" },
 				css = { "prettier" },
-				html = { "prettier" },
+				scss = { "prettier" },
+				less = { "prettier" },
 				json = { "prettier" },
-				yaml = { "prettier" },
+				jsonc = { "prettier" },
 				markdown = { "prettier" },
 				graphql = { "prettier" },
+				handlebars = { "prettier" },
+				typescriptreact = { "prettier" },
+				graphql = { "prettier" },
+				svelte = { "prettier" },
+				html = { "prettier" },
+				yaml = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				php = { "pretty-php" },
