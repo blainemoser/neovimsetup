@@ -9,17 +9,6 @@ vim.api.nvim_set_keymap("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", {})
 vim.api.nvim_set_keymap("n", "<F9>", ":LazyGit<Return>", { noremap = true })
 
--- tab mappings
-vim.api.nvim_set_keymap("n", "<C-l>h", ":tabr<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>l", ":tabl<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>j", ":tabp<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>k", ":tabn<CR>", { noremap = true, silent = true })
-
--- Use for when you want to input a number
-vim.api.nvim_set_keymap("n", "<C-l>f", ":tabn", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-t>", ":tabnew<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-x>", ":tabc<CR>", { noremap = true, silent = true })
-
 -- Clear search
 vim.api.nvim_set_keymap("n", "cs", ":noh<CR>", { noremap = true, silent = true })
 

@@ -85,6 +85,12 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		
+		-- configure python
+		lspconfig["pylyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({

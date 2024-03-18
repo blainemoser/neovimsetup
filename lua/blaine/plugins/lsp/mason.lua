@@ -29,6 +29,7 @@ return {
 				"rustfmt", -- rust
 				"vue-language-server", -- vue
 				"gopls",
+				"isort",
 			},
 		})
 	end,
