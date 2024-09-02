@@ -22,11 +22,14 @@ return {
 		})
 		mason_tool_installer.setup({
 			ensure_installed = {
+				"php-cs-fixer",
+				"pint",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"intelephense", -- php
 				"rustfmt", -- rust
+				"rust-analyzer", -- rust
 				"vue-language-server", -- vue
 				"gopls",
 				"isort",

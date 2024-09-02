@@ -65,6 +65,9 @@ return {
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+
+		local util = require "lspconfig/util"
+
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -78,6 +81,21 @@ return {
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+	
+		-- Rust
+		lspconfig.rust_analyzer.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {"rust"},
+			rootdir = util.root_pattern("Cargo.toml"),
+			settings = {
+				['rust-analyzer'] = {
+					cargo = {
+						allFeatures = true,
+					},
+				}
+			},
 		})
 
 		-- configure html server
@@ -100,12 +118,6 @@ return {
 
 		-- configure css server
 		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-		
-		-- configure vue server
-		lspconfig["vue-language-server"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

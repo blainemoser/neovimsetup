@@ -25,9 +25,20 @@ return {
 				yaml = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				php = { "pretty-php" },
+				php = { { "pint", "php-cs-fixer" } },
 				rust = { "rustfmt" },
 				go = { "gofmt" },
+			},
+			formatters = {
+				["php-cs-fixer"] = {
+					command = "php-cs-fixer",
+					args = {
+						"fix",
+						"--rules=@PSR12", -- Formatting preset. Other presets are available, see the php-cs-fixer docs.
+						"$FILENAME",
+					},
+					stdin = false,
+				},
 			},
 		})
 
@@ -35,7 +46,7 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 500,
+				timeout_ms = 5000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
