@@ -24,13 +24,14 @@ return {
 			ensure_installed = {
 				"php-cs-fixer",
 				"pint",
+				"vue-language-server",
+				"typescript-language-server",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"intelephense", -- php
 				"rustfmt", -- rust
 				"rust-analyzer", -- rust
-				"vue-language-server", -- vue
 				"gopls",
 				"isort",
 			},

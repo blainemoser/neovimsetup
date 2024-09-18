@@ -31,11 +31,10 @@ return {
 			opts.desc = "Show LSP implementations"
 			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
---			opts.desc = "Show LSP type definitions"
---			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+			--			opts.desc = "Show LSP type definitions"
+			--			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
 			opts.desc = "See available code actions"
-			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 			opts.desc = "Smart rename"
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
@@ -66,7 +65,7 @@ return {
 		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 
-		local util = require "lspconfig/util"
+		local util = require("lspconfig/util")
 
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
@@ -77,41 +76,60 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-		
+
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-	
+
 		-- Rust
-		lspconfig.rust_analyzer.setup({
+		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = {"rust"},
+			filetypes = { "rust" },
 			rootdir = util.root_pattern("Cargo.toml"),
 			settings = {
-				['rust-analyzer'] = {
+				["rust-analyzer"] = {
 					cargo = {
 						allFeatures = true,
 					},
-				}
+				},
 			},
 		})
 
-		-- configure html server
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-		
-		-- configure python
-		lspconfig["pylyzer"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+		local mason_registry = require("mason-registry")
+		local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+			.. "/node_modules/@vue/language-server"
+
+		lspconfig["tsserver"].setup({
+			-- Initial options for the TypeScript language server
+			init_options = {
+				plugins = {
+					{
+						-- Name of the TypeScript plugin for Vue
+						name = "@vue/typescript-plugin",
+
+						-- Location of the Vue language server module (path defined in step 1)
+						location = vue_language_server_path,
+
+						-- Specify the languages the plugin applies to (in this case, Vue files)
+						languages = { "vue" },
+					},
+				},
+			},
+
+			-- Specify the file types that will trigger the TypeScript language server
+			filetypes = {
+				"typescript", -- TypeScript files (.ts)
+				"javascript", -- JavaScript files (.js)
+				"javascriptreact", -- React files with JavaScript (.jsx)
+				"typescriptreact", -- React files with TypeScript (.tsx)
+				"vue", -- Vue.js single-file components (.vue)
+			},
 		})
 
-		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		-- configure python
+		lspconfig["pylyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
