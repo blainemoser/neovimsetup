@@ -1,10 +1,10 @@
 -- set leader key to space
 vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap("n", "<C-P>", ":Telescope find_files default_text=", { noremap = true })
-vim.api.nvim_set_keymap("n", "ff", ":Telescope live_grep default_text=", { noremap = true })
-vim.api.nvim_set_keymap("n", "gs", ":Telescope grep_string default_text=", { noremap = true })
-vim.api.nvim_set_keymap("n", "gf", ":Telescope git_files default_text=", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-P>", ":Telescope find_files <CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "ff", ":Telescope live_grep <CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gs", ":Telescope grep_string <CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "gf", ":Telescope git_files <CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", {})
 vim.api.nvim_set_keymap("n", "<F9>", ":LazyGit<Return>", { noremap = true })
