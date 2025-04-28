@@ -82,6 +82,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- Zig
+		lspconfig["zls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "zig" },
+		})
+
 		-- Rust
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,

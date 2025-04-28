@@ -29,10 +29,11 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
-				"intelephense", -- php
-				"rustfmt", -- rust
-				"rust-analyzer", -- rust
-				"gopls",
+				"intelephense", -- Php
+				"rustfmt", -- Rust
+				"rust-analyzer", -- Rust
+				"gopls", -- Go
+				"zls", -- Zig
 				"isort",
 			},
 		})
